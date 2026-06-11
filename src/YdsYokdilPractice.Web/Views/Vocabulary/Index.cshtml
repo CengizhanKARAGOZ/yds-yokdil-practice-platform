@@ -1,0 +1,94 @@
+@model List<YdsYokdilPractice.Web.Models.Vocabulary.VocabularyWord>
+
+@{
+    ViewData["Title"] = "Kelime Çalış";
+}
+
+<div class="container py-4">
+    <div class="mb-4">
+        <h1 class="fw-bold">Kelime Çalış</h1>
+        <p class="text-muted">
+            YDS ve YÖKDİL için akademik kelime havuzu.
+        </p>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="fw-bold">Kelime Bilmece</h5>
+                    <p class="text-muted small">
+                        Kelimenin Türkçe anlamını seçeneklerden bul.
+                    </p>
+                    <a asp-controller="Vocabulary" asp-action="Quiz" class="btn btn-primary w-100">
+                        Quiz Başlat
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="fw-bold">Flashcard</h5>
+                    <p class="text-muted small">
+                        Kartları çevirerek kelime ve anlamlarını tekrar et.
+                    </p>
+                    <a asp-controller="Vocabulary" asp-action="Flashcards" class="btn btn-outline-primary w-100">
+                        Flashcard Aç
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="fw-bold">Kelime Havuzu</h5>
+                    <p class="text-muted small">
+                        Şu an sistemde @Model.Count kelime var.
+                    </p>
+                    <button class="btn btn-outline-secondary w-100" disabled>
+                        1000+ kelimeye genişletilecek
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="fw-bold mb-3">Kelime Listesi</h4>
+
+    <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Kelime</th>
+                    <th>Anlam</th>
+                    <th>Tür</th>
+                    <th>Seviye</th>
+                    <th>Örnek</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var word in Model)
+                {
+                    <tr>
+                        <td>
+                            <strong>@word.Word</strong>
+                        </td>
+                        <td>@word.Meaning</td>
+                        <td>@word.PartOfSpeech</td>
+                        <td>
+                            <span class="badge bg-secondary">@word.Level</span>
+                        </td>
+                        <td class="small">
+                            @word.Example
+                            <br />
+                            <span class="text-muted">@word.Translation</span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

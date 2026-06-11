@@ -1,8 +1,102 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+ViewData["Title"] = "Ana Sayfa";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container py-5">
+    <div class="row align-items-center mb-5">
+        <div class="col-lg-7">
+            <span class="badge bg-primary mb-3">YDS / YÖKDİL Practice Platform</span>
+
+            <h1 class="display-5 fw-bold mb-3">
+                Bugün ne çalışmak istiyorsun?
+            </h1>
+
+            <p class="lead text-muted">
+                YDS ve YÖKDİL formatına uygun denemeler, kelime pratikleri,
+                flashcard sistemi ve yanlış tekrarları ile düzenli çalışma platformu.
+            </p>
+
+            <div class="d-flex gap-2 mt-4 flex-wrap">
+                <a asp-controller="Exams" asp-action="Index" class="btn btn-primary btn-lg">
+                    Deneme Çöz
+                </a>
+
+                <a asp-controller="Vocabulary" asp-action="Index" class="btn btn-outline-primary btn-lg">
+                    Kelime Çalış
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-5 mt-4 mt-lg-0">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-3">Hızlı Başlangıç</h5>
+
+                    <div class="list-group list-group-flush">
+                        <a asp-controller="Exams" asp-action="Index" class="list-group-item list-group-item-action">
+                            Süreli deneme çöz
+                        </a>
+
+                        <a asp-controller="Vocabulary" asp-action="Quiz" class="list-group-item list-group-item-action">
+                            Kelime bilmece çöz
+                        </a>
+
+                        <a asp-controller="Vocabulary" asp-action="Flashcards" class="list-group-item list-group-item-action">
+                            Flashcard ile tekrar yap
+                        </a>
+
+                        <a class="list-group-item list-group-item-action disabled">
+                            Yanlışlarım yakında
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="fw-bold">Deneme Modu</h5>
+                    <p class="text-muted small mb-0">
+                        Süreli çözüm, seçenek işaretleme, doğru-yanlış analizi.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="fw-bold">Çalışma Modu</h5>
+                    <p class="text-muted small mb-0">
+                        Soruları cevap ve açıklamalarıyla inceleme.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="fw-bold">Kelime Pratiği</h5>
+                    <p class="text-muted small mb-0">
+                        Akademik kelime havuzu, quiz ve tekrar sistemi.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="fw-bold">Flashcard</h5>
+                    <p class="text-muted small mb-0">
+                        Kart çevirme mantığıyla hızlı kelime ezberi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

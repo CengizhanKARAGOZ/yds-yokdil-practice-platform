@@ -1,0 +1,41 @@
+@model List<YdsYokdilPractice.Web.Models.Vocabulary.VocabularyWord>
+
+@{
+    ViewData["Title"] = "Flashcards";
+}
+
+<div class="container py-4">
+    <div class="mb-4">
+        <a asp-controller="Vocabulary" asp-action="Index" class="text-decoration-none">
+            ← Kelime Çalışmaya Dön
+        </a>
+
+        <h1 class="fw-bold mt-3">Flashcards</h1>
+        <p class="text-muted">
+            Kartın üzerine tıklayarak anlamı ve örnek cümleyi gör.
+        </p>
+    </div>
+
+    <div class="row g-3">
+        @foreach (var word in Model)
+        {
+            <div class="col-md-6 col-lg-4">
+                <div class="flashcard">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3 class="fw-bold">@word.Word</h3>
+                            <p class="text-muted">@word.PartOfSpeech</p>
+                            <span class="badge bg-secondary">@word.Level</span>
+                        </div>
+
+                        <div class="flashcard-back">
+                            <h5 class="fw-bold">@word.Meaning</h5>
+                            <p class="small mb-1">@word.Example</p>
+                            <p class="small text-muted">@word.Translation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

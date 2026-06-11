@@ -1,0 +1,135 @@
+@model List<YdsYokdilPractice.Web.Models.Vocabulary.VocabularyWord>
+
+@{
+    ViewData["Title"] = "Kelime Bilmece";
+    var allMeanings = Model.Select(x => x.Meaning).ToList();
+}
+
+<div class="container py-4" id="vocabularyQuizApp">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <a asp-controller="Vocabulary" asp-action="Index" class="text-decoration-none">
+                ← Kelime Çalışmaya Dön
+            </a>
+            <h1 class="fw-bold mt-3">Kelime Bilmece</h1>
+            <p class="text-muted">
+                İngilizce kelimenin doğru Türkçe anlamını seç.
+            </p>
+        </div>
+    </div>
+
+    @for (var i = 0; i < Model.Count; i++)
+    {
+        var word = Model[i];
+
+        var wrongOptions = allMeanings
+            .Where(x => x != word.Meaning)
+            .OrderBy(_ => Guid.NewGuid())
+            .Take(3)
+            .ToList();
+
+        var options = wrongOptions
+            .Append(word.Meaning)
+            .OrderBy(_ => Guid.NewGuid())
+            .ToList();
+
+        <div class="card shadow-sm mb-3 vocabulary-question" data-correct="@word.Meaning">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <strong>Soru @(i + 1)</strong>
+                    <span class="badge bg-secondary">@word.Level</span>
+                </div>
+
+                <h3 class="fw-bold mt-3">@word.Word</h3>
+
+                <p class="text-muted small">
+                    @word.PartOfSpeech - @word.Category
+                </p>
+
+                <div class="list-group mt-3">
+                    @for (var j = 0; j < options.Count; j++)
+                    {
+                        var option = options[j];
+                        var optionLetter = ((char)('A' + j)).ToString();
+                        var inputId = $"word_{word.Id}_{j}";
+
+                        <label class="list-group-item vocabulary-option" for="@inputId">
+                            <input class="form-check-input me-2 vocabulary-answer"
+                                   type="radio"
+                                   name="word_@word.Id"
+                                   id="@inputId"
+                                   value="@option" />
+                            <strong>@optionLetter.</strong> @option
+                        </label>
+                    }
+                </div>
+
+                <div class="alert alert-light border mt-3 d-none vocabulary-explanation">
+                    <p class="mb-1">
+                        <strong>Doğru anlam:</strong> @word.Meaning
+                    </p>
+                    <p class="mb-1">
+                        <strong>Örnek:</strong> @word.Example
+                    </p>
+                    <p class="mb-0 text-muted">
+                        @word.Translation
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body d-flex justify-content-between align-items-center">
+            <div>
+                <strong>Quiz’i bitir</strong>
+                <div class="small text-muted">
+                    Sonuçlar tarayıcı localStorage alanına kaydedilir.
+                </div>
+            </div>
+
+            <button type="button" id="finishVocabularyQuizBtn" class="btn btn-success btn-lg">
+                Bitir
+            </button>
+        </div>
+    </div>
+
+    <div id="vocabularyResultBox" class="card shadow-sm d-none">
+        <div class="card-body">
+            <h3 class="fw-bold">Kelime Quiz Sonucu</h3>
+
+            <div class="row text-center mt-4">
+                <div class="col-md-4">
+                    <div class="border rounded p-3">
+                        <div class="fs-2 fw-bold text-success" id="vocabCorrectCount">0</div>
+                        <div>Doğru</div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="border rounded p-3">
+                        <div class="fs-2 fw-bold text-danger" id="vocabWrongCount">0</div>
+                        <div>Yanlış</div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="border rounded p-3">
+                        <div class="fs-2 fw-bold text-secondary" id="vocabBlankCount">0</div>
+                        <div>Boş</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <a asp-controller="Vocabulary" asp-action="Quiz" class="btn btn-primary">
+                    Yeni Quiz
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/vocabulary-quiz.js"></script>
+}

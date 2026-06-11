@@ -7,6 +7,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IJsonDataService, JsonDataService>();
 builder.Services.AddScoped<IExamService, ExamService>();
+builder.Services.AddScoped<IVocabularyService, VocabularyService>();
 
 var app = builder.Build();
 

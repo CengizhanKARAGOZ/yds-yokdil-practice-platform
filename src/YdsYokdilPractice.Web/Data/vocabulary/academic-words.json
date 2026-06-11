@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "word": "significant",
+    "meaning": "önemli, kayda değer",
+    "partOfSpeech": "adjective",
+    "level": "B1-B2",
+    "category": "academic",
+    "synonyms": ["important", "notable", "considerable"],
+    "example": "The study revealed a significant difference between the two groups.",
+    "translation": "Çalışma, iki grup arasında önemli bir fark ortaya koydu."
+  },
+  {
+    "id": 2,
+    "word": "adequate",
+    "meaning": "yeterli",
+    "partOfSpeech": "adjective",
+    "level": "B1-B2",
+    "category": "academic",
+    "synonyms": ["sufficient", "enough", "acceptable"],
+    "example": "The evidence was adequate to support the claim.",
+    "translation": "Kanıt, iddiayı desteklemek için yeterliydi."
+  },
+  {
+    "id": 3,
+    "word": "approach",
+    "meaning": "yaklaşım, yaklaşmak",
+    "partOfSpeech": "noun/verb",
+    "level": "B1-B2",
+    "category": "academic",
+    "synonyms": ["method", "strategy", "way"],
+    "example": "This approach can improve students' reading skills.",
+    "translation": "Bu yaklaşım öğrencilerin okuma becerilerini geliştirebilir."
+  },
+  {
+    "id": 4,
+    "word": "assume",
+    "meaning": "varsaymak",
+    "partOfSpeech": "verb",
+    "level": "B1-B2",
+    "category": "academic",
+    "synonyms": ["suppose", "presume", "believe"],
+    "example": "Researchers often assume that the data is accurate.",
+    "translation": "Araştırmacılar genellikle verinin doğru olduğunu varsayar."
+  },
+  {
+    "id": 5,
+    "word": "benefit",
+    "meaning": "fayda, yarar sağlamak",
+    "partOfSpeech": "noun/verb",
+    "level": "B1-B2",
+    "category": "academic",
+    "synonyms": ["advantage", "gain", "profit"],
+    "example": "Regular practice provides many benefits for language learners.",
+    "translation": "Düzenli pratik, dil öğrenenler için birçok fayda sağlar."
+  },
+  {
+    "id": 6,
+    "word": "challenge",
+    "meaning": "zorluk, meydan okumak",
+    "partOfSpeech": "noun/verb",
+    "level": "B1-B2",
+    "category": "academic",
+    "synonyms": ["difficulty", "problem", "obstacle"],
+    "example": "Climate change is a major challenge for modern societies.",
+    "translation": "İklim değişikliği modern toplumlar için büyük bir zorluktur."
+  },
+  {
+    "id": 7,
+    "word": "concept",
+    "meaning": "kavram",
+    "partOfSpeech": "noun",
+    "level": "B1-B2",
+    "category": "academic",
+    "synonyms": ["idea", "notion", "principle"],
+    "example": "The concept of identity is central to social sciences.",
+    "translation": "Kimlik kavramı sosyal bilimlerin merkezindedir."
+  },
+  {
+    "id": 8,
+    "word": "consistent",
+    "meaning": "tutarlı, uyumlu",
+    "partOfSpeech": "adjective",
+    "level": "B1-B2",
+    "category": "academic",
+    "synonyms": ["compatible", "steady", "regular"],
+    "example": "The results are consistent with previous studies.",
+    "translation": "Sonuçlar önceki çalışmalarla tutarlıdır."
+  },
+  {
+    "id": 9,
+    "word": "derive",
+    "meaning": "elde etmek, türetmek",
+    "partOfSpeech": "verb",
+    "level": "B2",
+    "category": "academic",
+    "synonyms": ["obtain", "gain", "extract"],
+    "example": "The conclusion was derived from several experiments.",
+    "translation": "Sonuç birkaç deneyden elde edildi."
+  },
+  {
+    "id": 10,
+    "word": "enhance",
+    "meaning": "geliştirmek, artırmak",
+    "partOfSpeech": "verb",
+    "level": "B1-B2",
+    "category": "academic",
+    "synonyms": ["improve", "increase", "strengthen"],
+    "example": "Technology can enhance the quality of education.",
+    "translation": "Teknoloji eğitimin kalitesini artırabilir."
+  },
+  {
+    "id": 11,
+    "word": "evidence",
+    "meaning": "kanıt, delil",
+    "partOfSpeech": "noun",
+    "level": "B1-B2",
+    "category": "academic",
+    "synonyms": ["proof", "indication", "support"],
+    "example": "There is strong evidence for this argument.",
+    "translation": "Bu argüman için güçlü kanıt vardır."
+  },
+  {
+    "id": 12,
+    "word": "factor",
+    "meaning": "faktör, etken",
+    "partOfSpeech": "noun",
+    "level": "B1",
+    "category": "academic",
+    "synonyms": ["element", "aspect", "component"],
+    "example": "Economic factors may affect educational success.",
+    "translation": "Ekonomik faktörler eğitim başarısını etkileyebilir."
+  },
+  {
+    "id": 13,
+    "word": "impact",
+    "meaning": "etki",
+    "partOfSpeech": "noun/verb",
+    "level": "B1-B2",
+    "category": "academic",
+    "synonyms": ["effect", "influence", "consequence"],
+    "example": "Social media has a strong impact on communication.",
+    "translation": "Sosyal medyanın iletişim üzerinde güçlü bir etkisi vardır."
+  },
+  {
+    "id": 14,
+    "word": "indicate",
+    "meaning": "göstermek, işaret etmek",
+    "partOfSpeech": "verb",
+    "level": "B1-B2",
+    "category": "academic",
+    "synonyms": ["show", "suggest", "demonstrate"],
+    "example": "The findings indicate a clear connection between income and health.",
+    "translation": "Bulgular gelir ve sağlık arasında açık bir bağlantı olduğunu göstermektedir."
+  },
+  {
+    "id": 15,
+    "word": "maintain",
+    "meaning": "sürdürmek, korumak, iddia etmek",
+    "partOfSpeech": "verb",
+    "level": "B2",
+    "category": "academic",
+    "synonyms": ["preserve", "continue", "claim"],
+    "example": "The author maintains that education reduces inequality.",
+    "translation": "Yazar, eğitimin eşitsizliği azalttığını iddia eder."
+  },
+  {
+    "id": 16,
+    "word": "major",
+    "meaning": "büyük, önemli, başlıca",
+    "partOfSpeech": "adjective",
+    "level": "B1",
+    "category": "academic",
+    "synonyms": ["important", "main", "primary"],
+    "example": "Pollution is a major problem in urban areas.",
+    "translation": "Kirlilik kentsel alanlarda büyük bir problemdir."
+  },
+  {
+    "id": 17,
+    "word": "method",
+    "meaning": "yöntem",
+    "partOfSpeech": "noun",
+    "level": "B1",
+    "category": "academic",
+    "synonyms": ["technique", "procedure", "approach"],
+    "example": "The researcher used a qualitative method.",
+    "translation": "Araştırmacı nitel bir yöntem kullandı."
+  },
+  {
+    "id": 18,
+    "word": "occur",
+    "meaning": "meydana gelmek, gerçekleşmek",
+    "partOfSpeech": "verb",
+    "level": "B1-B2",
+    "category": "academic",
+    "synonyms": ["happen", "take place", "arise"],
+    "example": "Similar changes may occur in different societies.",
+    "translation": "Benzer değişimler farklı toplumlarda meydana gelebilir."
+  },
+  {
+    "id": 19,
+    "word": "previous",
+    "meaning": "önceki",
+    "partOfSpeech": "adjective",
+    "level": "B1",
+    "category": "academic",
+    "synonyms": ["former", "earlier", "prior"],
+    "example": "The results support previous research.",
+    "translation": "Sonuçlar önceki araştırmaları desteklemektedir."
+  },
+  {
+    "id": 20,
+    "word": "require",
+    "meaning": "gerektirmek",
+    "partOfSpeech": "verb",
+    "level": "B1-B2",
+    "category": "academic",
+    "synonyms": ["need", "demand", "involve"],
+    "example": "Academic writing requires clear organization.",
+    "translation": "Akademik yazım açık bir organizasyon gerektirir."
+  }
+]
