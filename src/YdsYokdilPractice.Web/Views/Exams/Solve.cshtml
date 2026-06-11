@@ -1,0 +1,174 @@
+@model YdsYokdilPractice.Web.Models.Exam.Exam
+
+@{
+ViewData["Title"] = Model.Title + " - Çöz";
+}
+
+<div class="container py-4"
+     id="examApp"
+     data-exam-id="@Model.Id"
+     data-duration="@Model.DurationMinutes">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <a asp-controller="Exams" asp-action="Index" class="text-decoration-none">
+                ← Denemelere Dön
+            </a>
+
+            <h1 class="fw-bold mt-3 mb-1">@Model.Title</h1>
+            <p class="text-muted mb-0">
+                @Model.ExamType - @Model.Field - @Model.QuestionCount soru
+            </p>
+        </div>
+
+        <div class="text-end">
+            <div class="badge bg-dark fs-6 p-3">
+                Süre: <span id="timer">--:--</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-9">
+            <form id="examForm">
+                @foreach (var question in Model.Questions)
+                {
+                <div class="card shadow-sm mb-3 question-card" id="question-@question.Id">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <strong>Soru @question.Id</strong>
+                            <span class="badge bg-light text-dark">@question.Type</span>
+                        </div>
+
+                        <p class="fw-semibold fs-5">@question.QuestionText</p>
+
+                        <div class="list-group">
+                            @for (var i = 0; i < question.Options.Count; i++)
+                            {
+                            var option = question.Options[i];
+                            var optionLetter = ((char)('A' + i)).ToString();
+                            var inputId = $"q{question.Id}_{optionLetter}";
+
+                            <label class="list-group-item option-item" for="@inputId">
+                                <input class="form-check-input me-2 answer-option"
+                                       type="radio"
+                                       name="question_@question.Id"
+                                       id="@inputId"
+                                       value="@option"
+                                       data-question-id="@question.Id"
+                                       data-correct-answer="@question.CorrectAnswer" />
+
+                                <strong>@optionLetter.</strong> @option
+                            </label>
+                            }
+                        </div>
+
+                        <div class="explanation-box alert alert-light border mt-3 d-none"
+                             data-question-id="@question.Id">
+                            <p class="mb-1">
+                                <strong>Doğru cevap:</strong> @question.CorrectAnswer
+                            </p>
+                            <p class="mb-0 text-muted">
+                                @question.Explanation
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                }
+
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>Denemeyi bitirmeye hazır mısın?</strong>
+                            <div class="text-muted small">
+                                Bitirdikten sonra cevaplar kilitlenir ve sonuç gösterilir.
+                            </div>
+                        </div>
+
+                        <button type="button" id="finishExamBtn" class="btn btn-success btn-lg">
+                            Denemeyi Bitir
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div id="resultBox" class="card shadow-sm mb-4 d-none">
+                <div class="card-body">
+                    <h3 class="fw-bold">Sonuç</h3>
+
+                    <div class="row text-center mt-4">
+                        <div class="col-md-3">
+                            <div class="border rounded p-3">
+                                <div class="fs-2 fw-bold text-success" id="correctCount">0</div>
+                                <div>Doğru</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="border rounded p-3">
+                                <div class="fs-2 fw-bold text-danger" id="wrongCount">0</div>
+                                <div>Yanlış</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="border rounded p-3">
+                                <div class="fs-2 fw-bold text-secondary" id="blankCount">0</div>
+                                <div>Boş</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="border rounded p-3">
+                                <div class="fs-2 fw-bold text-primary" id="successRate">0%</div>
+                                <div>Başarı</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 d-flex gap-2">
+                        <button type="button" id="showExplanationsBtn" class="btn btn-outline-primary">
+                            Açıklamaları Göster
+                        </button>
+
+                        <a asp-controller="Exams" asp-action="Solve" asp-route-id="@Model.Id" class="btn btn-outline-secondary">
+                            Tekrar Çöz
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="card shadow-sm sticky-top" style="top: 20px;">
+                <div class="card-body">
+                    <h5 class="fw-bold">Soru Paneli</h5>
+
+                    <div class="question-nav d-flex flex-wrap gap-2 mt-3">
+                        @foreach (var question in Model.Questions)
+                        {
+                        <a href="#question-@question.Id"
+                           class="btn btn-outline-secondary btn-sm question-nav-btn"
+                           data-question-id="@question.Id">
+                            @question.Id
+                        </a>
+                        }
+                    </div>
+
+                    <hr />
+
+                    <div class="small text-muted">
+                        <div><span class="badge bg-primary">&nbsp;</span> İşaretlendi</div>
+                        <div class="mt-1"><span class="badge bg-success">&nbsp;</span> Doğru</div>
+                        <div class="mt-1"><span class="badge bg-danger">&nbsp;</span> Yanlış</div>
+                        <div class="mt-1"><span class="badge bg-secondary">&nbsp;</span> Boş</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script src="~/js/exam-solve.js"></script>
+}

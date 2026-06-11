@@ -1,0 +1,68 @@
+{
+  "id": "yokdil-sosyal-mini-001",
+  "title": "YÖKDİL Sosyal Bilimler Mini Deneme 1",
+  "examType": "YOKDIL",
+  "field": "Sosyal Bilimler",
+  "level": "B1-B2",
+  "durationMinutes": 25,
+  "questionCount": 5,
+  "description": "YÖKDİL sosyal bilimler formatına uygun kısa akademik İngilizce denemesi.",
+  "questions": [
+    {
+      "id": 1,
+      "type": "vocabulary",
+      "difficulty": "medium",
+      "questionText": "The researcher attempted to ___ the relationship between language and social identity.",
+      "options": ["clarify", "consume", "withdraw", "interrupt", "conceal"],
+      "correctAnswer": "clarify",
+      "explanation": "'Clarify' açıklığa kavuşturmak anlamına gelir.",
+      "tags": ["vocabulary", "academic"]
+    },
+    {
+      "id": 2,
+      "type": "vocabulary",
+      "difficulty": "medium",
+      "questionText": "Cultural values may ___ how individuals communicate in professional settings.",
+      "options": ["influence", "pretend", "exclude", "repair", "borrow"],
+      "correctAnswer": "influence",
+      "explanation": "'Influence' etkilemek anlamındadır.",
+      "tags": ["vocabulary", "social sciences"]
+    },
+    {
+      "id": 3,
+      "type": "grammar",
+      "difficulty": "easy",
+      "questionText": "The theory ___ by many scholars since the early twentieth century.",
+      "options": ["has been discussed", "discusses", "discussed", "is discussing", "will discuss"],
+      "correctAnswer": "has been discussed",
+      "explanation": "'Since' yapısı present perfect gerektirir. Ayrıca theory edilgen durumdadır.",
+      "tags": ["grammar", "passive voice", "present perfect"]
+    },
+    {
+      "id": 4,
+      "type": "sentence-completion",
+      "difficulty": "medium",
+      "questionText": "Because social interaction is shaped by cultural norms, ___.",
+      "options": [
+        "communication styles may vary from one society to another",
+        "the experiment was conducted in a laboratory",
+        "the number of participants was limited",
+        "the article was published last year",
+        "language learning requires regular practice"
+      ],
+      "correctAnswer": "communication styles may vary from one society to another",
+      "explanation": "Sebep-sonuç ilişkisi vardır. Kültürel normlar iletişim biçimlerinin toplumdan topluma değişmesine neden olabilir.",
+      "tags": ["sentence completion", "cause-effect"]
+    },
+    {
+      "id": 5,
+      "type": "vocabulary",
+      "difficulty": "medium",
+      "questionText": "The findings of the study are ___ with previous research on social behavior.",
+      "options": ["consistent", "temporary", "ordinary", "harmful", "random"],
+      "correctAnswer": "consistent",
+      "explanation": "'Be consistent with' bir şeyle uyumlu olmak anlamına gelir.",
+      "tags": ["vocabulary", "collocation"]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+@model YdsYokdilPractice.Web.Models.Exam.Exam
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="container py-4">
+    <div class="mb-4">
+        <a asp-controller="Exams" asp-action="Index" class="text-decoration-none">
+            ← Denemelere Dön
+        </a>
+    </div>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <div class="d-flex gap-2 mb-3">
+                <span class="badge bg-primary">@Model.ExamType</span>
+                <span class="badge bg-secondary">@Model.Field</span>
+                <span class="badge bg-dark">@Model.Level</span>
+            </div>
+
+            <h1 class="fw-bold">@Model.Title</h1>
+
+            <p class="text-muted">@Model.Description</p>
+
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <strong>Soru Sayısı:</strong> @Model.QuestionCount
+                </div>
+                <div class="col-md-4">
+                    <strong>Süre:</strong> @Model.DurationMinutes dakika
+                </div>
+                <div class="col-md-4">
+                    <strong>Sınav Türü:</strong> @Model.ExamType
+                </div>
+            </div>
+            <div class="mt-4">
+                <a asp-controller="Exams"
+                   asp-action="Solve"
+                   asp-route-id="@Model.Id"
+                   class="btn btn-primary btn-lg">
+                    Deneme Modunda Çöz
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="mb-3">Sorular</h4>
+
+    @foreach (var question in Model.Questions)
+    {
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between mb-2">
+                    <strong>Soru @question.Id</strong>
+                    <span class="badge bg-light text-dark">@question.Type</span>
+                </div>
+
+                <p class="fw-semibold">@question.QuestionText</p>
+
+                <ol type="A">
+                    @foreach (var option in question.Options)
+                    {
+                        <li>@option</li>
+                    }
+                </ol>
+
+                <details class="mt-3">
+                    <summary>Cevap ve açıklama</summary>
+                    <div class="mt-2">
+                        <p class="mb-1">
+                            <strong>Doğru cevap:</strong> @question.CorrectAnswer
+                        </p>
+                        <p class="text-muted mb-0">
+                            @question.Explanation
+                        </p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    }
+</div>
